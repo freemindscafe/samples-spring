@@ -9,11 +9,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/com/freemindcafe/spring/core/ContextTest-context.xml"})
-public class ContextTest {
+@ContextConfiguration(locations = {"classpath:/com/freemindcafe/spring/core/TemplateTestDoNotModify-context.xml"})
+public class TemplateTestDoNotModify {
 	
 	@Autowired
-	private ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;	
  
 	@Test
 	public void testContext() {
