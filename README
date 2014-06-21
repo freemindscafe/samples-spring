@@ -1,1 +1,13 @@
-Put in the content
+This repository will hold all the spring samples that we need time-to-time.
+Samples are in the form of test cases.
+
+
+Package naming conventions
+----------------------------
+
+Please use spring package names so if you are adding test case for jdbc, please add your test case under com/freemindcafe/spring/jdbc.
+The individual test cases should be independent and should be able to run in isolation.
+
+Database
+----------
+Apache derby database is being used as a datastore.
