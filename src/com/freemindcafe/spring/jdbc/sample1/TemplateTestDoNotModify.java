@@ -27,22 +27,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * @author ic033920
  * 
- * Creating an in-memory database
-
- * To create an in-memory database, specify memory as the JDBC subprotocol. 
- * For example, to create an in-memory database named myDB using the embedded driver, 
- * use the following connection URL:
+ * Create a new sample package and copy files from this package over there.
  * 
- * jdbc:derby:memory:embeddedDataSource;create=true
- * 
- * For the network client driver, use the following connection URL. 
- * Because the client driver does not understand the memory subprotocol, you must include it in the database name:
- * 
- * jdbc:derby://myhost:1527/memory:embeddedDataSource;create=true
- * 
- * Be careful to specify a colon (:) after memory.
- * 
- *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/com/freemindcafe/spring/jdbc/sample1/TemplateTestDoNotModify.xml"})
