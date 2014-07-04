@@ -11,8 +11,8 @@
                         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
                         
 	<jdbc:embedded-database id="embeddedDataSource" type="DERBY">
-		<jdbc:script location="classpath:/com/freemindcafe/spring/jdbc/sample3/test-schema.sql"/>
-		<jdbc:script location="classpath:/com/freemindcafe/spring/jdbc/sample3/test-data.sql"/>
+		<jdbc:script location="classpath:/com/freemindcafe/spring/jdbc/sample4/test-schema.sql"/>
+		<jdbc:script location="classpath:/com/freemindcafe/spring/jdbc/sample4/test-data.sql"/>
 	</jdbc:embedded-database>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -27,12 +27,12 @@
       <property name="dataSource" ref="embeddedDataSource"/>
    </bean>
    
-   <bean id="sampleService" class="com.freemindcafe.spring.jdbc.sample3.SampleServiceImpl" />
+   <bean id="sampleService" class="com.freemindcafe.spring.jdbc.sample4.SampleServiceImpl" />
    
    <!-- The following does not seem to do anything. @Transactional did not work -->
    <context:annotation-config />
    
    <!-- This worked and @Transactional got recognized. This needs aopalliance.jar file -->
-   <tx:annotation-driven transaction-manager="transactionManager" />
+   <tx:annotation-driven transaction-manager="transactionManager"/>
    
 </beans>

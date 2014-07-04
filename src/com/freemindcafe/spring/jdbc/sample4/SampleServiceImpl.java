@@ -1,4 +1,4 @@
-package com.freemindcafe.spring.jdbc.sample3;
+package com.freemindcafe.spring.jdbc.sample4;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
-public class SampleServiceImpl implements ISampleService {
+public class SampleServiceImpl implements ISampleService{
 
 	@Autowired
 	private ApplicationContext applicationContext;

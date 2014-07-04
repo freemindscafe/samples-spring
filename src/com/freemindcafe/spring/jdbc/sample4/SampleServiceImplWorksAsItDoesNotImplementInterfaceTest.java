@@ -1,4 +1,4 @@
-package com.freemindcafe.spring.jdbc.sample3;
+package com.freemindcafe.spring.jdbc.sample4;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,8 +30,8 @@ import org.springframework.transaction.support.TransactionTemplate;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/com/freemindcafe/spring/jdbc/sample3/Test.xml"})
-public class FirstTest {
+@ContextConfiguration(locations = {"classpath:/com/freemindcafe/spring/jdbc/sample4/SampleServiceImplWorksAsItDoesNotImplementInterface.xml"})
+public class SampleServiceImplWorksAsItDoesNotImplementInterfaceTest {
 
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -43,7 +43,7 @@ public class FirstTest {
 	private TransactionTemplate transactionTemplate;
 	
 	@Autowired
-	private ISampleService sampleService;
+	private SampleServiceImplDoesNotImplementInterface sampleService;
 	
 	@BeforeClass
 	public static void beforeClass(){
@@ -98,7 +98,7 @@ public class FirstTest {
 	}
 	
 	@Test
-	public void service3_Is_Transactional_At_Interface_Hence_On_Exception_Data_Is_Not_Persisted(){
+	public void service3_Is_Transactional_At_Implementation_Hence_On_Exception_Data_Is_Not_Persisted(){
 		
 		try{
 			sampleService.service3();

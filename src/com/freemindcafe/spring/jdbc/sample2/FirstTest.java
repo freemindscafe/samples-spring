@@ -17,15 +17,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 /**
  * @author ic033920
  * 
  * Create a new sample package and copy files from this package over there.
+ * 
+ * service1_Is_Non_Transactional_Hence_Data_Is_Persisted
+ * service2_Is_Transactional_At_Implementation_But_Annotation_Is_Not_Active_In_Wiring_Hence_Data_On_Exception_Is_Again_Persisted
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -50,7 +50,7 @@ public class FirstTest {
 	}
 	
 	@Test
-	public void service1_Is_Non_Transactional_Hence_Data_Is_Persisted(){
+	public void service1_Is_Non_Transactional_Hence_On_Exception_Data_Is_Persisted(){
 		try{
 			sampleService.service1();
 		}
@@ -73,7 +73,7 @@ public class FirstTest {
 	}
 	
 	@Test
-	public void service2_Is_Transactional_At_Implementation_But_Annotation_Is_Not_Active_In_Wiring_Hence_Data_Is_Again_Persisted(){
+	public void service2_Is_Transactional_At_Implementation_But_Annotation_Is_Not_Active_In_Wiring_Hence_Data_On_Exception_Is_Again_Persisted(){
 		
 		try{
 			sampleService.service2();

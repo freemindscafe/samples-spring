@@ -1,0 +1,7 @@
+Test to verify the proxy
+
+	If the class implements an interface, then the proxy will be of interface-type and not of class-type.
+	Hence autowiring by class-type will fail because spring will not find that class-type.
+	
+	If the class does not implement an interface, then the proxy will be of class-type.
+	Hence autowiring by class-type will succeed because spring will find that class-type.

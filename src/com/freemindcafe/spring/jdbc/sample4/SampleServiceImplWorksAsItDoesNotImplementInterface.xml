@@ -27,7 +27,7 @@
       <property name="dataSource" ref="embeddedDataSource"/>
    </bean>
    
-   <bean id="sampleService" class="com.freemindcafe.spring.jdbc.sample3.SampleServiceImpl" />
+   <bean id="sampleService" class="com.freemindcafe.spring.jdbc.sample4.SampleServiceImplDoesNotImplementInterface" />
    
    <!-- The following does not seem to do anything. @Transactional did not work -->
    <context:annotation-config />

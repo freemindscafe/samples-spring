@@ -2,11 +2,13 @@ This repository will hold all the spring samples that we need time-to-time.
 Samples are in the form of test cases.
 
 
-Package naming conventions
+Guidelines
 ----------------------------
 
-Please use spring package names so if you are adding test case for jdbc, please add your test case under com/freemindcafe/spring/jdbc.
-The individual test cases should be independent and should be able to run in isolation.
+- Please use spring package names so if you are adding test case for jdbc, please add your test case under com/freemindcafe/spring/jdbc.
+- Please create a new sample package freely. Do not try to add many test cases in a single sample package.
+- All the classes, ddl, dml and wiring should be referred from that package only. It is ok to have duplcate code, ddl, dml and wiring.
+- The individual test cases should be independent and should be able to run in isolation.
 
 Database
 ----------
