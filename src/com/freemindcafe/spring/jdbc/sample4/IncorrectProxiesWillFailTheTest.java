@@ -45,7 +45,10 @@ public class IncorrectProxiesWillFailTheTest {
 	 * And if the class is implementing an interface ISampleService then the proxy
 	 * will be an implementation of ISampleService and it will compose the actual
 	 * classes object. But this actual classes object will not be available 
-	 * for wiring because it will be not of the type SampleServiceImpl
+	 * for wiring because it will be not of the type SampleServiceImpl.
+	 * 
+	 * If the target class implements one or more interfaces, then Spring will create a 
+	 * JDK dynamic proxy that implements every interface.
 	 */
 	private SampleServiceImpl sampleService;
 	

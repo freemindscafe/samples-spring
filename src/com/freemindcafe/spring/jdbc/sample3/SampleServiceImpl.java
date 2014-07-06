@@ -33,7 +33,7 @@ public class SampleServiceImpl implements ISampleService {
 	
 	@Override
 	public void service3() {
-		jdbcTemplate.update("insert into publisher values (3, 'test publisher 4')");
+		jdbcTemplate.update("insert into publisher values (4, 'test publisher 4')");
 		throw new RuntimeException("service3 exception");
 
 	}	

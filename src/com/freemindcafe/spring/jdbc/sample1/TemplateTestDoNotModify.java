@@ -24,6 +24,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * 
  * Create a new sample package and copy files from this package over there.
  * 
+ * testToVerifyTheConnection
+ *  
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/com/freemindcafe/spring/jdbc/sample1/TemplateTestDoNotModify.xml"})

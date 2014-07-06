@@ -106,7 +106,7 @@ public class FirstTest {
 		catch(RuntimeException ex){
 			//ignore
 		}
-		List<String> publishers = jdbcTemplate.query("select name from publisher where publisher_id=3", new ResultSetExtractor<List<String>>() {
+		List<String> publishers = jdbcTemplate.query("select name from publisher where publisher_id=4", new ResultSetExtractor<List<String>>() {
 
 					@Override
 					public List<String> extractData(ResultSet rs) throws SQLException,
