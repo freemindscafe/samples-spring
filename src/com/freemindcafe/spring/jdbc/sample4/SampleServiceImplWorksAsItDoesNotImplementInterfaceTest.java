@@ -28,7 +28,7 @@ import org.springframework.transaction.support.TransactionTemplate;
  * 
  * service1_Is_Non_Transactional_Hence_On_Exception_Data_Is_Persisted
  * service2_Is_Transactional_At_Implementation_Hence_On_Exception_Data_Is_Not_Persisted
- * service3_Is_Transactional_At_Interface_Hence_On_Exception_Data_Is_Not_Persisted
+ * service3_Is_Transactional_At_Implementation_Hence_On_Exception_Data_Is_Not_Persisted
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
