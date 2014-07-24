@@ -1,0 +1,21 @@
+Code related to jdbc calls and @Transactional annotation.
+
+sample1
+			It contains no test as such. This serves as a template to start a new test case.
+sample2
+			1. Without <context:annotation-config /> and <tx:annotation-driven transaction-manager="transactionManager" />
+			   in wiring, @Transactional does not work. [FirstTest]
+sample3
+			We have <context:annotation-config /> and <tx:annotation-driven transaction-manager="transactionManager" /> in wiring.
+			
+			1. Methods that don't have @Transactional either at interface or implementation are not transactional. [FirstTest]
+			2. Methods that have @Transactional either at interface or implementation are transactional. [FirstTest]
+sample4
+			We have <context:annotation-config /> and <tx:annotation-driven transaction-manager="transactionManager" /> in wiring.
+			
+			1. If the target class implements one or more interfaces, then Spring will create a JDK dynamic proxy that 
+			   implements every interface. [IncorrectProxiesWillFailTheTest]
+			2. If the target class implements no interfaces, Spring will use CGLIB to create a new class on the fly that 
+			   is a subclass ("extends") the target class. [SampleServiceImplWorksAsItDoesNotImplementInterfaceTest]
+			3. One can force spring to use cglib proxy [SampleServiceImplWorksAsItUsesCglibProxyTest]
+			4. Refer to README of this package for more details.
