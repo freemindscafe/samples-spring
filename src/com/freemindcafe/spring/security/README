@@ -1,0 +1,29 @@
+Code related to @PreAuthorize annotation and corresponding spring EL.
+
+sample1
+			With out pre-post-annotations="enabled" attribute, authorization check is not enabled.
+			The service object will not be a proxy. [Test.java --> setupUser()]
+sample2
+			1. Test cases for user1 -> role1 -> permission1
+			2. With pre-post-annotations="enabled" attribute, authorization check is enabled. [Test.xml]
+			   Spring creates a jdk proxy as the implementation implements one interface.
+			3. If a method calls other method internally, then that call will not be through proxy. 
+			   [SampleServiceImpl.java -> method6] 
+sample3
+			1. Test cases for user2 -> role2 -> permission2
+			2. With pre-post-annotations="enabled" attribute, authorization check is enabled. [Test.xml]
+			   Spring creates a jdk proxy as the implementation implements one interface.			   
+			3. If a method calls other method internally, then that call will not be through proxy. 
+			   [SampleServiceImpl.java -> method6] 
+			4. @PreAuthorize can also be applied over class rather than the interface.
+			   In this case also since SampleServiceImpl implements ISampleService interface, we will have
+			   jdk dynamic proxy. [SampleServiceImpl -> method4]
+sample4
+			1. If we move every expression based control to the class and SampleServiceImpl does not implement
+			   ISampleService interface, then cglib proxy is created and authorization checks behavior remains
+			   the same. [SampleServiceImpl and Test]
+sample5
+			1. Forcing cglib proxy and in that case authorizations checks that have been defined on the class
+			   will be applicable. Also spring will create the proxy class of type SampleServiceImpl
+			   and not that of ISampleService. So the type for setter injection should be SampleServiceImpl
+			   and ISampleService.
