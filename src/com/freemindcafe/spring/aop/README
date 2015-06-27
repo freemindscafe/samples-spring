@@ -1,0 +1,20 @@
+Code related to proxy mechanism.
+
+sample1
+=======
+We have a one service class 'ServiceClassWithNoInterface' that does not implement any interface.
+We have one service class 'ServiceClassWithInterface' that implements 'ServiceInterface'.
+
+1. AroundAdvice example on ServiceClassWithInterface using jdk proxy. The target proxy class being hardcoded in the code.
+2. AroundAdvice example on ServiceClassWithNoInterface using jdk proxy. The target proxy class being hardcoded in the code. It should fail?
+2. AroundAdvice example using cglib proxy. The target proxy class being hardcoded in the code.
+3.  AroundAdvice example using cglib proxy. The target proxy class being hardcoded in the 
+code. Selective methods of target beans are proxied.
+4. Target beans method1 internally calls method2. That call is not through proxy.
+5. Target beans method1 internally calls method2. That call is through proxy.
+
+
+sample2
+========
+1. AroundAdvice example using cglib proxy. The target proxy class getting retrieved using a filter.
+2. AroundAdvice example using jdk proxy. The target proxy being retrieved using a filter.

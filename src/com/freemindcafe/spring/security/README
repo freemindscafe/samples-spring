@@ -35,4 +35,4 @@ sample5
 1. Forcing cglib proxy and in that case authorizations checks that have been defined on the class
    will be applicable. Also spring will create the proxy class of type SampleServiceImpl
    and not that of ISampleService. So the type for setter injection should be SampleServiceImpl
-   and ISampleService.
+   and not ISampleService.

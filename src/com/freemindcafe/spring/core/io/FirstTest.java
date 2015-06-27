@@ -69,50 +69,54 @@ public class FirstTest {
 	
 	@Test
 	public void file_loaded_from_jar_classpath_results_in_a_JarURLConnection() throws Exception {
-		//FIXME
-		URL url = this.getClass().getClassLoader().getResource("/com/freemindcafe/spring/core/io/sample/sample1.properties");
+		URL url = this.getClass().getClassLoader().getResource("com/freemindcafe/spring/core/io/sample/sample1.properties");
 		URLConnection connection = url.openConnection();
 		Assert.assertTrue(connection instanceof JarURLConnection);
-		InputStream inputStream = connection.getInputStream();
-		Assert.assertTrue(inputStream instanceof JarInputStream);
+		//InputStream inputStream = connection.getInputStream();
+		//Assert.assertTrue(inputStream instanceof JarURLConnection$);
+		Properties props = new Properties();
+		props.load(connection.getInputStream());
+		Assert.assertEquals(props.get("key1"), "value1");
 	}
 
 		
 	@Test
 	public void folder_loaded_from_jar_classpath_results_in_a_JarURLConnection() throws Exception {
-		//FIXME
-		URL url = this.getClass().getClassLoader().getResource("/com/freemindcafe/spring/core/io/sample");
+		Properties props = new Properties();
+		URL url = this.getClass().getClassLoader().getResource("com/freemindcafe/spring/core/io/sample");
 		URLConnection connection = url.openConnection();
 		Assert.assertTrue(connection instanceof JarURLConnection);
 		JarURLConnection jarConnection = (JarURLConnection)connection;
-		InputStream inputStream = connection.getInputStream();
+		//InputStream inputStream = connection.getInputStream();
 		//Assert.assertTrue(inputStream instanceof JarInputStream);
-		//JarInputStream jarInputStream = (JarInputStream)inputStream;
 		JarFile jarFile = jarConnection.getJarFile();
 		JarEntry jarEntry;
 		for (Enumeration<JarEntry> entries = jarFile.entries() ; entries.hasMoreElements() ;)
 	    {
 	        JarEntry entry = entries.nextElement();
 	        String file = entry.getName();
-	        if (file.endsWith(".handlers"))
+	        if (file.endsWith(".properties"))
 	        {
-	            String classname = file.replace('/', '.').substring(0, file.length() - 6);
-	            try 
-	            {
-	                Class<?> c = Class.forName(classname);
-	                //classes.add(c);
-	            }
-	            catch (Throwable e) 
-	            {
-	                System.out.println("WARNING: failed to instantiate " + classname + " from " + file);
-	            }
+	        	props.load(jarFile.getInputStream(entry));
 	        }
 	    }
+		Assert.assertEquals(props.get("key1"), "value1");
+		Assert.assertEquals(props.get("key3"), "value3");
 	}
 	
 	@Test
 	public void file_loaded_from_jar_or_directory_classpath_can_be_read_by_getting_a_stream() throws Exception {
-		//FIXME
+		Properties props = new Properties();
+		//JAR
+		URL url = this.getClass().getClassLoader().getResource("com/freemindcafe/spring/core/io/sample/sample2.properties");
+		URLConnection connection = url.openConnection();
+		props.load(connection.getInputStream());
+		//DIRECTORY CLASSPATH
+		url = this.getClass().getClassLoader().getResource("com/freemindcafe/spring/core/io/FirstTest.properties");
+		connection = url.openConnection();
+		props.load(connection.getInputStream());
+		Assert.assertEquals(props.get("key1"), "value1");
+		Assert.assertEquals(props.get("key3"), "value3");
 	}
 	
 	@Test
