@@ -1,4 +1,8 @@
-build/classes
-.project
-*.log
-samples-spring.jar
+/.project
+/*.log*
+/samples-spring.jar
+/build
+/doc
+/html
+/*.tmp
+

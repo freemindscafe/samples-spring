@@ -1,4 +1,4 @@
-package com.freemindcafe.spring.core;
+package com.freemindcafe.spring.template;
 
 import org.junit.Assert;
 import org.junit.Test;
